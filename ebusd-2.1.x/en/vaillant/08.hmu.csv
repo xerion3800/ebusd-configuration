@@ -60,7 +60,7 @@ r,,ch_4b,,,,,4b,,,UIN,,,,,,,,,,,,,,,,,,,,,
 r,,ch_4c,,,,,4c,,,UIN,,,,,,,,,,,,,,,,,,,,,
 r,,TotalEnergyUsage,,,,,4D,,,energy,,kWh,,,,,,,,,,,,,,,,,,,
 r,,ch_63,,,,,63,,,UIN,,,,,,,,,,,,,,,,,,,,,
-# Heat pump configuration menu values
+# Heat pump configuration menu values,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 *r,,,,,,"B51A","058F35",,,IGN:3,,,,,,,,,,,,,,,,,,,,,
 r,,HeatCurve,,,,,2D,,,BCD,10,,heat curve 0.1 to 4.0,,,,,,,,,,,,,,,,,,
 # Uncomment the next line if you want to be able to change HeatCurve (from Home Assistant for example),,,,,,,,,,,,,,,,,,
