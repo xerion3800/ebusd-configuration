@@ -148,7 +148,7 @@ r,,SubcoolingTargetValue,,,,,5903FFFF,,,temps2,10,°K,Subcooling target temperat
 r,,SubcoolingActualValue,,,,,5A03FFFF,,,temps2,10,°K,Subcooling temperature actual (°K),,,,,,,,,,,,,,,,,,
 r,,CompressorSpeed,,,,,5D03FFFF,,,UIN,10,Hz,Compressor speed (rps),,,,,,,,,,,,,,,,,,
 r,,TemperatureSwitchCompressorOutlet,,,,,7B03FFFF,,,UCH,0=open;1=closed,,,,,,,,,,,,,,,,,,,,
-# (query to VWZ AI+ e.g. device 76, adapt for MEH if deviceno differs from 76),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# (query to VWZ AI+ e.g. device 76 adapt for MEH if deviceno differs from 76),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 r,,ThreeWayValve,,,76,,0203FFFF,,,UCH,0=heating;1=dhw,,Three way valve (heating/dhw),,,,,,,,,,,,,,,,,,
 r,,HwcTemp,,,76,,2C03FFFF,,,temps2,10,°C,Hwc temperature (°C),,,,,,,,,,,,,,,,,,
 r,,OutdoorTemp,,,76,,4503FFFF,,,temps2,10,°C,Outdoor temperature (°C),,,,,,,,,,,,,,,,,,
