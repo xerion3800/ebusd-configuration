@@ -1,6 +1,10 @@
 # type (r[1-9];w;u),circuit,name,[comment],[QQ],ZZ,PBSB,[ID],field1,part (m/s),datatypes/templates,divider/values,unit,comment,field2,part (m/s),datatypes/templates,divider/values,unit,comment,field3,part (m/s),datatypes/templates,divider/values,unit,comment,field4,part (m/s),datatypes/templates,divider/values,unit,comment
 #,vwz,VWL,700 110,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+<<<<<<< HEAD
 # Values from VWZ Test Menu (query to WP entries Installer level/Test Menu/Sensor test),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+=======
+# Values from VWZ AI Plus Test Menu,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+>>>>>>> d2c15f47af947d32345e4ef9d0b10b6a77ced60c
 *r,,,,,,B514,05,,,IGN:2,,,,,,,,,,,,,,,,,,,,,
 r,,ThreeWayValve,,,,,0203FFFF,,,UCH,0=heating;1=dhw,,Three way valve (heating/dhw),,,,,,,,,,,,,,,,,,
 r,,HwcTemp,,,,,2C03FFFF,,,temps2,10,°C,SWW Tank temperature (°C),,,,,,,,,,,,,,,,,,
