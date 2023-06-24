@@ -385,7 +385,5 @@ w,,z3Timer.Friday,timer heating friday,,,,04,,,wTimeSlotWithTemp,,,
 w,,z3Timer.Saturday,timer heating saturday,,,,05,,,wTimeSlotWithTemp,,,
 w,,z3Timer.Sunday,timer heating sunday,,,,06,,,wTimeSlotWithTemp,,,
 
-# attempt to read legionella run information based on VRC470 registers???
-
 # includes,,,,,,,,,,,,,
 !include,errors.inc,,,,,,,,,,,,
