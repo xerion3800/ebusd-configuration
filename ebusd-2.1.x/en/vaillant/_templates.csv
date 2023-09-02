@@ -85,7 +85,7 @@ hto,HDA:3,,,holiday period to
 holiday,hfrom;hfrom;hto;hto,,,holiday period 1 from; 2 from; 1 to; 2 to
 hpstatus,UCH,0=off;3=heat;6=standby;7=otshutdown;8=water,,heating state
 frequency,UIN,,Hz,frequency
-zonesel,UIN,0=alle;1=1;2=2;3=3;4=4;5=5;6=6,,selected zone
+zonesel,UIN,0=all;1=1;2=2;3=3;4=4;5=5;6=6,,selected zone
 sfmode,UCH,0=auto;1=ventilation;2=party;3=veto;4=onedayaway;5=onedayathome;6=load,,
 opmode,UIN,0=off;1=auto;2=day;3=night,,
 opmode2,UIN,0=off;1=time controlled;2=manual,,
@@ -98,6 +98,7 @@ shortphone,STR:6,,,phone number
 mamode,UIN,0=circulation;1=dryer;2=zone;3=legiopump,,
 offmode,UIN,0=eco;1=night,,
 rcmode,UIN,0=off;1=modulating;2=thermostat,,
+rcmode2,UIN,0=off;1=thermostat;2=modulating,,
 slotIndex,UCH,,,array index for the zones. Array Index start at 0 for the first element
 slotCount,UCH,,,Number of total slots in the array. May be Zero.
 slotCountWeek,IGN:1;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;IGN:1,,Number of total slots in the array for a week. Mon-Sun
@@ -107,3 +108,4 @@ wTimeSlotWithTemp,slotIndex;slotCount;slotTimeFrame;slotTemp,,,Complete Slot for
 wTimeSlotWithoutTemp,slotIndex;slotCount;slotTimeFrame;IGN:2,,,Complete slot for writing the time table settings without a temperature.
 rTimeSlotWithTemp,IGN:1;slotTimeFrame;slotTemp,,,Complete Slot for reading the time table settings.
 rTimeSlotWithoutTemp,IGN:1;slotTimeFrame;IGN:2,,,Complete slot for reading the time table settings without a temperature.
+

@@ -9,11 +9,11 @@ r;w,,GlobalSystemOff,Global System OFF,,,,0700,,,yesno,,,For switching system of
 r;w,,HwcParallelLoading,hwc parallel loading,,,,0A00,,,onoff,,,heating and hot water parallel
 r;w,,MaxRoomHumidity,max room humidity,,,,0E00,,,UIN,,,maximum room humidity
 r;w,,AdaptHeatCurve,adaptive heat curve,,,,1400,,,yesno,,,automatic correction of configured heat curve
-r;w,,MaxCylinderChargeTime,maximale Speicherladezeit,,,,1700,,,minutes2,,,maximum cylinder charging time
+r;w,,HwcMaxChargeTime,maximale Speicherladezeit,,,,1700,,,minutes2,,,maximum cylinder charging time
 r;w,,HwcLockTime,hwc lock time,,,,1800,,,minutes2,,,Lock time hot water current
 r;w,,PumpAdditionalTime,pump additional time,,,,1B00,,,minutes2,,,chargepump additional operationtime
-r;w,,CylinderChargeHyst,hysteresis cylinder charge,,,,2700,,,calibrationv,,,hysteris storage tank loading
-r;w,,CylinderChargeOffset,offset cylinder charge,,,,2900,,,calibrationv,,,storage tank loading. Offset
+r;w,,HwcChargeHysteresis,hysteresis cylinder charge,,,,2700,,,calibrationv,,,hysteris storage tank loading
+r;w,,HwcChargeOffset,offset cylinder charge,,,,2900,,,calibrationv,,,storage tank loading. Offset
 r;w,,MaintenanceDate,next maintenance,,,,2C00,,,date,,,date next maintenance
 r;w,,Date,date,,,,3400,,,date,,,current date
 r;w,,Time,time,,,,3500,,,HTI,,,current time
@@ -66,7 +66,7 @@ r,,HcStorageTempBottom,hc storage temperature bottom,,,,A000,,,tempv,,,temperatu
 *r,,,,,,B524,02000100,,,IGN:4,,,
 *w,,,,,,B524,02010100,,,,,,
 r;w,,HwcOpMode,HwcOpMode,,,,0300,,,opmode2,,,operation mode of Hwc
-r;w,,HwcTempDesired,gewünschte Temperatur Warmwasserkreis,,,,0400,,,tempv,,,setpoint of domestic hot water circuit
+r;w,,HwcTempDesired,Desired Temperature Warm Water Circuit,,,,0400,,,tempv,,,setpoint of domestic hot water circuit
 r,,HwcStorageTemp,HwcStorageTemp,,,,0500,,,tempv,,,current hot water storage temperature
 r,,HwcFlowTemp,HwcFlowTemp,,,,0800,,,tempv,,,desired flow temp for Hwc
 r;w,,HwcHolidayStartPeriod,HwcHolidayStartPeriod,,,,0900,,,hfrom,,,start date of holidays
@@ -77,144 +77,144 @@ r;w,,HwcSFMode,HwcSFMode,,,,0D00,,,sfmode,,,
 # ##### heating circuit 1 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000200,,,IGN:4,,,
 *w,,,,,,B524,02010200,,,,,,
-r,,Hc1CircuitType,CircuitType Heizkreis 1,,,,0200,,,mctype;IGN:1,,,
-r;w,,Hc1Unknown04,(konstant 30) Temperatur Heizkreis 1,,,,0400,,,tempv,,,unknown value for Hc1
-r,,Hc1Unknown06,,,,,0600,,,HEX:5,,,unknown value for Hc1
-r,,Hc1ActualFlowTempDesired,ActualFlowTempDesired Heizkreis 1,,,,0700,,,tempv,,,current flow temperature setpoint of Hc1
-r,,Hc1FlowTemp,FlowTemp Heizkreis 1,,,,0800,,,tempv,,,current flow temperature of Hc1
-r;w,,Hc1Unknown09,(konstant 60) Temperatur,,,,0900,,,tempv,,,unknown value for Hc1
-r;w,,Hc1ExcessTemp,ExcessTemp Heizkreis 1,,,,0B00,,,calibrationv,,,excess temperature of Hc1 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
-r;w,,Hc1Unknown0c,(konstant 65) Temperatur Heizkreis 1,,,,0C00,,,tempv,,,unknown value for Hc1
-r;w,,Hc1Unknown0d,(konstant 65) Temperatur Heizkreis 1,,,,0D00,,,tempv,,,unknown value for Hc1
-r;w,,Hc1AutoOffMode,AutoOffMode Heizkreis 1,,,,0E00,,,offmode,,,operation of Hc1 during the lowering time; no influence if room temperature modulation is set to thermostat
-r;w,,Hc1HeatCurve,Heizkurve Heizkreis 1,,,,0F00,,,EXP,,,heating curve of Hc1
-r;w,,Hc1MaxHeatingFlowTempDesired,MaxFlowTempDesired Heizkreis 1,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc1
+r,,Hc1CircuitType,CircuitType Heating Circuit 1,,,,0200,,,mctype;IGN:1,,,
+#r;w,,Hc1Unknown04,(konstant 30) Temperature Heating Circuit 1,,,,0400,,,tempv,,,unknown value for Hc1
+#r,,Hc1Unknown06,,,,,0600,,,HEX:5,,,unknown value for Hc1
+r,,Hc1ActualFlowTempDesired,Actual Desired Flow Temperature Heating Circuit 1,,,,0700,,,tempv,,,current flow temperature setpoint of Hc1
+r,,Hc1FlowTemp,Flow Temperature Heating Circuit 1,,,,0800,,,tempv,,,current flow temperature of Hc1
+#r;w,,Hc1Unknown09,(konstant 60) Temperature,,,,0900,,,tempv,,,unknown value for Hc1
+r;w,,Hc1ExcessTemp,ExcessTemp Heating Circuit 1,,,,0B00,,,calibrationv,,,excess temperature of Hc1 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
+r;w,,Hc1DesiredTemp,Desired Temperature Heating Circuit 1,,,,0C00,,,tempv,,,unknown value for Hc1
+#r;w,,Hc1Unknown0d,(konstant 65) Temperature Heating Circuit 1,,,,0D00,,,tempv,,,unknown value for Hc1
+r;w,,Hc1AutoOffMode,AutoOffMode Heating Circuit 1,,,,0E00,,,offmode,,,operation of Hc1 during the lowering time; no influence if room temperature modulation is set to thermostat
+r;w,,Hc1HeatCurve,Heatcurve Heating Circuit 1,,,,0F00,,,EXP,,,heating curve of Hc1
+r;w,,Hc1MaxHeatingFlowTempDesired,MaxFlowTempDesired Heating Circuit 1,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc1
 r;w,,Hc1MinCoolingFlowTempDesired,,,,,1100,,,tempv,,,minimum cooling flow temperature setpoint of Hc1 
-r;w,,Hc1MinHeatingFlowTempDesired,MinFlowTempDesired Heizkreis 1,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc1
-r;w,,Hc1SummerTempLimit,AT-Abschaltgrenze Heizkreis 1,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
-r;w,,Hc1RoomTempSwitchOn,RoomTempSwitchOn Heizkreis 1,,,,1500,,,rcmode,,,room temperature modulation of Hc1
-r,,Hc1MixerMovement,MixerMovement Heizkreis 1,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
-r,,Hc1HeatCurveAdaption,Anpassung Heizkurve Heizkreis 1,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc1
-r;w,,Hc1Status,Status Heizkreis 1,,,,1B00,,,UCH,,,status of zone 1
-r;w,,Hc1PumpStatus,PumpStatus Heizkreis 1,,,,1E00,,,UIN,,,pump status of zone 1
+r;w,,Hc1MinHeatingFlowTempDesired,MinFlowTempDesired Heating Circuit 1,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc1
+r;w,,Hc1SummerTempLimit,AT-Abschaltgrenze Heating Circuit 1,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
+r;w,,Hc1RoomTempCompensation,Room Temperature Compensation Scheme Heating Circuit 1,,,,1500,,,rcmode2,,,room temperature modulation of Hc1
+r,,Hc1MixerMovement,Mixer Position Heating Circuit 1,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
+r;w,,Hc1Status,Status Heating Circuit 1,,,,1B00,,,UCH,,,status of zone 1
+r,,Hc1HeatCurveAdaption,Adaptive Heatcurve Heating Circuit 1,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc1
+r;w,,Hc1PumpStatus,PumpStatus Heating Circuit 1,,,,1E00,,,onoff,,,pump status of zone 1
 # ##### heating circuit 2 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000201,,,IGN:4,,,
 *w,,,,,,B524,02010201,,,,,,
-r,,Hc2CircuitType,CircuitType Heizkreis 2,,,,0200,,,mctype;IGN:1,,,
-#r;w,,Hc2Unknown04,(konstant 30) Temperatur Heizkreis 2,,,,0400,,,tempv,,,unknown value for Hc2
+r,,Hc2CircuitType,CircuitType Heating Circuit 2,,,,0200,,,mctype;IGN:1,,,
+#r;w,,Hc2Unknown04,(konstant 30) Temperature Heating Circuit 2,,,,0400,,,tempv,,,unknown value for Hc2
 #r,,Hc2Unknown06,,,,,600,,,HEX:5,,,unknown value for Hc2
-r,,Hc2ActualFlowTempDesired,ActualFlowTempDesired Heizkreis 2,,,,0700,,,tempv,,,current flow temperature setpoint of Hc2
-r,,Hc2FlowTemp,FlowTemp Heizkreis 2,,,,0800,,,tempv,,,current flow temperature of Hc2
+r,,Hc2ActualFlowTempDesired,Actual Desired Flow Temperature Heating Circuit 2,,,,0700,,,tempv,,,current flow temperature setpoint of Hc2
+r,,Hc2FlowTemp,Flow Temperature Heating Circuit 2,,,,0800,,,tempv,,,current flow temperature of Hc2
 #r;w,,Hc2Unknown09,(konstant 60) Temperatur,,,,0900,,,tempv,,,unknown value for Hc2
-r;w,,Hc2ExcessTemp,ExcessTemp Heizkreis 2,,,,0B00,,,calibrationv,,,excess temperature of Hc2 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
-#r;w,,Hc2Unknown0c,(konstant 65) Temperatur Heizkreis 2,,,,0C00,,,tempv,,,unknown value for Hc2
-#r;w,,Hc2Unknown0d,(konstant 65) Temperatur Heizkreis 2,,,,0D00,,,tempv,,,unknown value for Hc2
-r;w,,Hc2AutoOffMode,AutoOffMode Heizkreis 2,,,,0E00,,,offmode,,,operation of Hc2 during the lowering time; no influence if room temperature modulation is set to thermostat
-r;w,,Hc2HeatCurve,Heizkurve Heizkreis 2,,,,0F00,,,EXP,,,heating curve of Hc2
-r;w,,Hc2MaxHeatingFlowTempDesired,MaxFlowTempDesired Heizkreis 2,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc2
+r;w,,Hc2ExcessTemp,ExcessTemp Heating Circuit 2,,,,0B00,,,calibrationv,,,excess temperature of Hc2 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
+r;w,,Hc2DesiredTemp,Desired Temperature Heating Circuit 2,,,,0C00,,,tempv,,,unknown value for Hc2
+#r;w,,Hc2Unknown0d,(konstant 65) Temperature Heating Circuit 2,,,,0D00,,,tempv,,,unknown value for Hc2
+r;w,,Hc2AutoOffMode,AutoOffMode Heating Circuit 2,,,,0E00,,,offmode,,,operation of Hc2 during the lowering time; no influence if room temperature modulation is set to thermostat
+r;w,,Hc2HeatCurve,Heatingcurve Heating Circuit 2,,,,0F00,,,EXP,,,heating curve of Hc2
+r;w,,Hc2MaxHeatingFlowTempDesired,MaxFlowTempDesired Heating Circuit 2,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc2
 r;w,,Hc2MinCoolingFlowTempDesired,,,,,1100,,,tempv,,,minimum cooling flow temperature setpoint of Hc2
-r;w,,Hc2MinHeatingFlowTempDesired,MinFlowTempDesired Heizkreis 2,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc2
-r;w,,Hc2SummerTempLimit,AT-Abschaltgrenze Heizkreis 2,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
-r;w,,Hc2RoomTempSwitchOn,RoomTempSwitchOn Heizkreis 2,,,,1500,,,rcmode,,,room temperature modulation of Hc2
-r,,Hc2MixerMovement,MixerMovement Heizkreis 2,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
-r,,Hc2HeatCurveAdaption,Anpassung Heizkurve Heizkreis 2,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc2
-r;w,,Hc2Status,Status Heizkreis 2,,,,1B00,,,UCH,,,status of zone 2
-r;w,,Hc2PumpStatus,PumpStatus Heizkreis 2,,,,1E00,,,UIN,,,pump status of zone 2
+r;w,,Hc2MinHeatingFlowTempDesired,MinFlowTempDesired Heating Circuit 2,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc2
+r;w,,Hc2SummerTempLimit,AT-Abschaltgrenz Heating Circuit 2,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
+r;w,,Hc2RoomTempCompensation,Room Temperature Compensation Scheme Heating Circuit 2,,,,1500,,,rcmode2,,,room temperature modulation of Hc2
+r,,Hc2MixerMovement,Mixer Position Heating Circuit 2,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
+r,,Hc2HeatCurveAdaption,Adaption of Heatcurve Heating Circuit 2,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc2
+r;w,,Hc2Status,Status Heating Circuit 2,,,,1B00,,,UCH,,,status of zone 2
+r;w,,Hc2PumpStatus,PumpStatus Heating Circuit 2,,,,1E00,,,onoff,,,pump status of zone 2
 # ##### heating circuit 3 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000202,,,IGN:4,,,
 *w,,,,,,B524,02010202,,,,,,
-r,,Hc3CircuitType,CircuitType Heizkreis 3,,,,0200,,,mctype;IGN:1,,,
-#r;w,,Hc3Unknown04,(konstant 30) Temperatur Heizkreis 3,,,,0400,,,tempv,,,unknown value for Hc3
+r,,Hc3CircuitType,CircuitType Heating Circuit 3,,,,0200,,,mctype;IGN:1,,,
+#r;w,,Hc3Unknown04,(konstant 30) Temperature Heating Circuit 3,,,,0400,,,tempv,,,unknown value for Hc3
 #r,,Hc3Unknown06,,,,,600,,,HEX:5,,,unknown value for Hc3
-r,,Hc3ActualFlowTempDesired,ActualFlowTempDesired Heizkreis 3,,,,0700,,,tempv,,,current flow temperature setpoint of Hc3
-r,,Hc3FlowTemp,FlowTemp Heizkreis 3,,,,0800,,,tempv,,,current flow temperature of Hc3
+r,,Hc3ActualFlowTempDesired,Actual Desired Flow Temperature Heating Circuit 3,,,,0700,,,tempv,,,current flow temperature setpoint of Hc3
+r,,Hc3FlowTemp,Flow Temperature Heating Circuit 3,,,,0800,,,tempv,,,current flow temperature of Hc3
 #r;w,,Hc3Unknown09,(konstant 60) Temperatur,,,,0900,,,tempv,,,unknown value for Hc3
-r;w,,Hc3ExcessTemp,ExcessTemp Heizkreis 3,,,,0B00,,,calibrationv,,,excess temperature of Hc3 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
-#r;w,,Hc3Unknown0c,(konstant 65) Temperatur Heizkreis 3,,,,0C00,,,tempv,,,unknown value for Hc3
-#r;w,,Hc3Unknown0d,(konstant 65) Temperatur Heizkreis 3,,,,0D00,,,tempv,,,unknown value for Hc3
-r;w,,Hc3AutoOffMode,AutoOffMode Heizkreis 3,,,,0E00,,,offmode,,,operation of Hc3 during the lowering time; no influence if room temperature modulation is set to thermostat
-r;w,,Hc3HeatCurve,Heizkurve Heizkreis 3,,,,0F00,,,EXP,,,heating curve of Hc3
-r;w,,Hc3MaxHeatingFlowTempDesired,MaxFlowTempDesired Heizkreis 3,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc3
+r;w,,Hc3ExcessTemp,ExcessTemp Heating Circuit 3,,,,0B00,,,calibrationv,,,excess temperature of Hc3 (flow temperature's setpoint is increased by this value to keep the mixing valve in its control range)
+r;w,,Hc3DesiredTemp,Desired Temperature Heating Circuit 3,,,,0C00,,,tempv,,,unknown value for Hc3
+#r;w,,Hc3Unknown0d,(konstant 65) Temperature Heating Circuit 3,,,,0D00,,,tempv,,,unknown value for Hc3
+r;w,,Hc3AutoOffMode,AutoOffMode Heating Circuit 3,,,,0E00,,,offmode,,,operation of Hc3 during the lowering time; no influence if room temperature modulation is set to thermostat
+r;w,,Hc3HeatCurve,Heatcurve Heating Circuit 3,,,,0F00,,,EXP,,,heating curve of Hc3
+r;w,,Hc3MaxHeatingFlowTempDesired,MaxFlowTempDesired Heating Circuit 3,,,,1000,,,tempv,,,maximum heating flow temperature setpoint (end emphasis) of Hc3
 r;w,,Hc3MinCoolingFlowTempDesired,,,,,1100,,,tempv,,,minimum cooling flow temperature setpoint of Hc3
-r;w,,Hc3MinHeatingFlowTempDesired,MinFlowTempDesired Heizkreis 3,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc3
-r;w,,Hc3SummerTempLimit,AT-Abschaltgrenze Heizkreis 3,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
-r;w,,Hc3RoomTempSwitchOn,RoomTempSwitchOn Heizkreis 3,,,,1500,,,rcmode,,,room temperature modulation of Hc3
-r,,Hc3MixerMovement,MixerMovement Heizkreis 3,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
-r,,Hc3HeatCurveAdaption,Anpassung Heizkurve Heizkreis 3,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc3
-r;w,,Hc3Status,Status Heizkreis 3,,,,1B00,,,UCH,,,status of zone 2
-r;w,,Hc3PumpStatus,PumpStatus Heizkreis 3,,,,1E00,,,UIN,,,pump status of zone 3
+r;w,,Hc3MinHeatingFlowTempDesired,MinFlowTempDesired Heating Circuit 3,,,,1200,,,tempv,,,minimum heating flow temperature setpoint (end emphasis) of Hc3
+r;w,,Hc3SummerTempLimit,AT-Abschaltgrenze Heating Circuit 3,,,,1400,,,tempv,,,if outside temperature > summer limit => heating is OFF;applies to comfort and night setback setpoint
+r;w,,Hc3RoomTempCompensation,Room Temperature Compensation Scheme Heating Circuit 3,,,,1500,,,rcmode2,,,room temperature modulation of Hc3
+r,,Hc3MixerMovement,Mixer Position Heating Circuit 3,,,,1A00,,,EXP,,,"status of mixer (<0 closing, >0 opening)"
+r,,Hc3HeatCurveAdaption,Adaption of Heatcurve Heating Circuit 3,,,,1C00,,,EXP,,,adaption applied to heating curve of Hc3
+r;w,,Hc3Status,Status Heating Circuit 3,,,,1B00,,,UCH,,,status of zone 2
+r;w,,Hc3PumpStatus,PumpStatus Heating Circuit 3,,,,1E00,,,onoff,,,pump status of zone 3
 # ##### zone 1 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000300,,,IGN:4,,,
 *w,,,,,,B524,02010300,,,,,,
-r;w,,z1CoolingTemp,Kühlsolltemperatur Zone 1,,,,0200,,,tempv,,,desired cooling setpoint for zone 1
-r;w,,z1HolidayStartPeriod,Ferienzeitraum Start Zone 1,,,,0300,,,hfrom,,,start date of holidays for zone 1
-r;w,,z1HolidayEndPeriod,Ferienzeitraum Ende Zone 1,,,,0400,,,hto,,,end date of holidays for zone 1
-r;w,,z1HolidayTemp,Raumsollwert Ferienbetrieb Zone 1,,,,0500,,,tempv,,,holiday setpoint for zone 1
-r;w,,z1OpMode,Betriebsart Zone 1,,,,0600,,,opmode2,,,operation mode of zone 1
+r;w,,z1CoolingTemp,Target Cooling Temperature Zone 1,,,,0200,,,tempv,,,desired cooling setpoint for zone 1
+r;w,,z1HolidayStartPeriod,Holiday Period Start Zone 1,,,,0300,,,hfrom,,,start date of holidays for zone 1
+r;w,,z1HolidayEndPeriod,Holiday Period End Zone 1,,,,0400,,,hto,,,end date of holidays for zone 1
+r;w,,z1HolidayTemp,Holiday Period Target Temperature Zone 1,,,,0500,,,tempv,,,holiday setpoint for zone 1
+r;w,,z1OpMode,OpMode Zone 1,,,,0600,,,opmode2,,,operation mode of zone 1
 # it is not this but what is it?? r;w,,z1DayTemp,Solltemperatur Zone 1,,,,0700,,,tempv,,,day setpoint for zone 1
-r;w,,z1QuickVetoTemp,Quick Veto Temperatur Zone 1,,,,0800,,,tempv,,,manual override setpoint for zone 1
-r;w,,z1NightTemp,Absenktemperatur Zone 1,,,,0900,,,tempv,,,night setpoint for zone 1
-r;w,,z1BankHolidayStartPeriod,Bank Feiertag Start Zone 1,,,,0C00,,,hfrom,,,start date of bank holidays for zone 1
-r;w,,z1BankHolidayEndPeriod,Bank Feiertag Ende Zone 1,,,,0D00,,,hto,,,end date of bank holidays for zone 1
+r;w,,z1QuickVetoTemp,Quick Veto Temperature Zone 1,,,,0800,,,tempv,,,manual override setpoint for zone 1
+r;w,,z1NightTemp,Night Temperature Zone 1,,,,0900,,,tempv,,,night setpoint for zone 1
+r;w,,z1BankHolidayStartPeriod,Bank Holiday Period Start Zone 1,,,,0C00,,,hfrom,,,start date of bank holidays for zone 1
+r;w,,z1BankHolidayEndPeriod,Bank Holiday Period End Zone 1,,,,0D00,,,hto,,,end date of bank holidays for zone 1
 r;w,,z1SFMode,SFMode Zone 1,,,,0E00,,,sfmode,,,
-r,,z1RoomTemp,Raumisttemperatur Zone 1,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 1
-r;w,,z1ValveStatus,Ventilstatus Zone 1,,,,1200,,,UCH,,,valve status of zone 1
+r,,z1RoomTemp,Actual Room Temperature Zone 1,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 1
+r;w,,z1ValveStatus,Valve Status Zone 1,,,,1200,,,UCH,,,valve status of zone 1
 r;w,,z1RoomZoneMapping,Raumregler Zuordnung Zone 1,,,,1300,,,zmapping,,,configures which room temperature is assigned to zone 1
-r,,z1ActualRoomTempDesired,Raumsolltemperatur Zone 1,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
-w,,z1SetRoomTempDesired,room temperature desired zone 1,,,,2200,,,tempv,,,set current room setpoint
+r,,z1ActualRoomTempDesired,Actual Desired Room Zone 1,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
+w,,z1SetRoomTempDesired,Program Room Temperature Zone 1,,,,2200,,,tempv,,,set current room setpoint
 #r;w,,z1Unknown15Temp,(in FlüsterBetrieb 24 sonst 99 - max.Lüfterstufe?) Temperatur Zone 1,,,,1500,,,tempv,,,unknown value for zone 1
-r;w,,z1Shortname,Kurzbezeichnung Zone 1,,,,1600,,,shortname,,,short name of zone 1
-r;w,,z1Name1,Bezeichnung Zone 1 Teil 1,,,,1700,,,zname,,,name of zone 1
-r;w,,z1Name2,Bezeichnung Zone 1 Teil 2,,,,1800,,,zname,,,name of zone 1
+r;w,,z1Shortname,Shortname Zone 1,,,,1600,,,shortname,,,short name of zone 1
+r;w,,z1Name1,Name Zone 1 Part 1,,,,1700,,,zname,,,name of zone 1
+r;w,,z1Name2,Name Zone 1 Part 2,,,,1800,,,zname,,,name of zone 1
 #r,,z1Unknown15,Temperatur Unbekannt,,,,1500,,,tempv,,,
 #r,,z1Unknown23,Temperatur Unbekannt,,,,2300,,,tempv,,,
 
 # ##### zone 2 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000301,,,IGN:4,,,
 *w,,,,,,B524,02010301,,,,,,
-r;w,,z2CoolingTemp,Kühlsolltemperatur Zone 2,,,,0200,,,tempv,,,desired cooling setpoint for zone 2
-r;w,,z2HolidayStartPeriod,Ferienzeitraum Start Zone 2,,,,0300,,,hfrom,,,start date of holidays for zone 2
-r;w,,z2HolidayEndPeriod,Ferienzeitraum Ende Zone 2,,,,0400,,,hto,,,end date of holidays for zone 2
-r;w,,z2HolidayTemp,Raumsollwert Ferienbetrieb Zone 2,,,,0500,,,tempv,,,holiday setpoint for zone 2
-r;w,,z2OpMode,Betriebsart Zone 2,,,,0600,,,opmode2,,,operation mode of zone 2
+r;w,,z2CoolingTemp,Target Cooling Temperature Zone 2,,,,0200,,,tempv,,,desired cooling setpoint for zone 2
+r;w,,z2HolidayStartPeriod,Holiday Period Start Zone 2,,,,0300,,,hfrom,,,start date of holidays for zone 2
+r;w,,z2HolidayEndPeriod,Holiday Period End Zone 2,,,,0400,,,hto,,,end date of holidays for zone 2
+r;w,,z2HolidayTemp,Holiday Period Target Temperature Zone 2,,,,0500,,,tempv,,,holiday setpoint for zone 2
+r;w,,z2OpMode,OpMode Zone 2,,,,0600,,,opmode2,,,operation mode of zone 2
 #r;w,,z2DayTemp,Solltemperatur Zone 2,,,,0700,,,tempv,,,day setpoint for zone 2
-r;w,,z2QuickVetoTemp,Quick Veto Temperatur Zone 2,,,,0800,,,tempv,,,manual override setpoint for zone 2
-r;w,,z2NightTemp,Absenktemperatur Zone 2,,,,0900,,,tempv,,,night setpoint for zone 2
-r;w,,z2BankHolidayStartPeriod,Bank Feiertag Start Zone 2,,,,0C00,,,hfrom,,,start date of bank holidays for zone 2
-r;w,,z2BankHolidayEndPeriod,Bank Feiertag Ende Zone 2,,,,0D00,,,hto,,,end date of bank holidays for zone 2
+r;w,,z2QuickVetoTemp,Quick Veto Temperature Zone 2,,,,0800,,,tempv,,,manual override setpoint for zone 2
+r;w,,z2NightTemp,Night Temperature Zone 2,,,,0900,,,tempv,,,night setpoint for zone 2
+r;w,,z2BankHolidayStartPeriod,Bank Holiday Period Start Zone 2,,,,0C00,,,hfrom,,,start date of bank holidays for zone 2
+r;w,,z2BankHolidayEndPeriod,Bank Holiday Period End Zone 2,,,,0D00,,,hto,,,end date of bank holidays for zone 2
 r;w,,z2SFMode,SFMode Zone 2,,,,0E00,,,sfmode,,,
-r,,z2RoomTemp,Raumisttemperatur Zone 2,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 2
-r;w,,z2ValveStatus,Ventilstatus Zone 2,,,,1200,,,UCH,,,valve status of zone 2
+r,,z2RoomTemp,Actual Room Temperature Zone 2,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 2
+r;w,,z2ValveStatus,Valve Status Zone 2,,,,1200,,,UCH,,,valve status of zone 2
 r;w,,z2RoomZoneMapping,Raumregler Zuordnung Zone 2,,,,1300,,,zmapping,,,configures which room temperature is assigned to zone 2
-r;w,,z2ActualRoomTempDesired,Raumsolltemperatur Zone 2,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
-w,,z2SetRoomTempDesired,room temperature desired Zone 2,,,,2200,,,tempv,,,set current room setpoint
+r;w,,z2ActualRoomTempDesired,Actual Desired Room Temperature Zone 2,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
+w,,z2SetRoomTempDesired,Program Room Temperature Zone 2,,,,2200,,,tempv,,,set current room setpoint
 #r;w,,z2Unknown15Temp,(in FlüsterBetrieb 24 sonst 99 - max.Lüfterstufe?) Temperatur Zone 2,,,,1500,,,tempv,,,unknown value for zone 2
-r;w,,z2Shortname,Kurzbezeichnung Zone 2,,,,1600,,,shortname,,,short name of zone 2
-r;w,,z2Name1,Bezeichnung Zone 2 Teil 1,,,,1700,,,zname,,,name of zone 2
-r;w,,z2Name2,Bezeichnung Zone 2 Teil 2,,,,1800,,,zname,,,name of zone 2
+r;w,,z2Shortname,Shortname Zone 2,,,,1600,,,shortname,,,short name of zone 2
+r;w,,z2Name1,Name Zone 2 Part 1,,,,1700,,,zname,,,name of zone 2
+r;w,,z2Name2,Name Zone 2 Part 2,,,,1800,,,zname,,,name of zone 2
 # ##### zone 3 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000302,,,IGN:4,,,
 *w,,,,,,B524,02010302,,,,,,
-#r;w,,z3Unknown02,(konstant 24 - Lüfterstufe?) Temperatur Zone 3,,,,0200,,,tempv,,,unknown value for zone 3
-r;w,,z3HolidayStartPeriod,Ferienzeitraum Start Zone 3,,,,0300,,,hfrom,,,start date of holidays for zone 3
-r;w,,z3HolidayEndPeriod,Ferienzeitraum Ende Zone 3,,,,0400,,,hto,,,end date of holidays for zone 3
-r;w,,z3HolidayTemp,Raumsollwert Ferienbetrieb Zone 3,,,,0500,,,tempv,,,holiday setpoint for zone 3
-r;w,,z3OpMode,Betriebsart Zone 3,,,,0600,,,opmode2,,,operation mode of zone 3
+r;w,,z3CoolingTemp,Target Cooling Temperature Zone 3,,,,0200,,,tempv,,,desired cooling setpoint for zone 3
+r;w,,z3HolidayStartPeriod,Holiday Period Start Zone 3,,,,0300,,,hfrom,,,start date of holidays for zone 3
+r;w,,z3HolidayEndPeriod,Holiday Period End Zone 3,,,,0400,,,hto,,,end date of holidays for zone 3
+r;w,,z3HolidayTemp,Holiday Period Target Temperature Zone 3,,,,0500,,,tempv,,,holiday setpoint for zone 3
+r;w,,z3OpMode,OpMode Zone 3,,,,0600,,,opmode2,,,operation mode of zone 3
 #r;w,,z3DayTemp,Solltemperatur Zone 3,,,,0700,,,tempv,,,day setpoint for zone 3
 r;w,,z3QuickVetoTemp,Quick Veto Temperatur Zone 3,,,,0800,,,tempv,,,manual override setpoint for zone 3
-r;w,,z3NightTemp,Absenktemperatur Zone 3,,,,0900,,,tempv,,,night setpoint for zone 3
-r;w,,z3BankHolidayStartPeriod,Bank Feiertag Start Zone 3,,,,0C00,,,hfrom,,,start date of bank holidays for zone 3
-r;w,,z3BankHolidayEndPeriod,Bank Feiertag Ende Zone 3,,,,0D00,,,hto,,,end date of bank holidays for zone 3
+r;w,,z3NightTemp,Night Temperature Zone 3,,,,0900,,,tempv,,,night setpoint for zone 3
+r;w,,z3BankHolidayStartPeriod,Bank Holiday Period Start Zone 3,,,,0C00,,,hfrom,,,start date of bank holidays for zone 3
+r;w,,z3BankHolidayEndPeriod,Bank Holiday Period End Zone 3,,,,0D00,,,hto,,,end date of bank holidays for zone 3
 r;w,,z3SFMode,SFMode Zone 3,,,,0E00,,,sfmode,,,
-r,,z3RoomTemp,Raumisttemperatur Zone 3,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 3
-r;w,,z3ValveStatus,Ventilstatus Zone 3,,,,1200,,,UCH,,,valve status of zone 3
+r,,z3RoomTemp,Actual Room Temperature Zone 3,,,,0F00,,,tempv,,,aktuelle Raumtemperatur in Zone 3
+r;w,,z3ValveStatus,Valve Status Zone 3,,,,1200,,,UCH,,,valve status of zone 3
 r;w,,z3RoomZoneMapping,Raumregler Zuordnung Zone 3,,,,1300,,,zmapping,,,configures which room temperature is assigned to zone 3
-r;w,,z3ActualRoomTempDesired,Raumsolltemperatur Zone 3,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
-w,,z3SetRoomTempDesired,room temperature desired Zone 3,,,,2200,,,tempv,,,set current room setpoint
+r;w,,z3ActualRoomTempDesired,Actual Desired Room Temperature Zone 3,,,,1400,,,tempv,,,current room setpoint considering all basic conditions passed to the control algorithms
+w,,z3SetRoomTempDesired,Program Room Temperature Zone 3,,,,2200,,,tempv,,,set current room setpoint
 #r;w,,z3Unknown15Temp,(in FlüsterBetrieb 24 sonst 99 - max.Lüfterstufe?) Temperatur Zone 3,,,,1500,,,tempv,,,unknown value for zone 3
-r;w,,z3Shortname,Kurzbezeichnung Zone 3,,,,1600,,,shortname,,,short name of zone 3
-r;w,,z3Name1,Bezeichnung Zone 3 Teil 1,,,,1700,,,zname,,,name of zone 3
-r;w,,z3Name2,Bezeichnung Zone 3 Teil 2,,,,1800,,,zname,,,name of zone 3
+r;w,,z3Shortname,Shortname Zone 3,,,,1600,,,shortname,,,short name of zone 3
+r;w,,z3Name1,Name Zone 3 Part 1,,,,1700,,,zname,,,name of zone 3
+r;w,,z3Name2,Name Zone 3 Part 2,,,,1800,,,zname,,,name of zone 3
 # ##### timers #####,,,,,,,,,,,,,
 *r,,,,,,,,,,,,,
 r,,unknownValue.a0,(3Zones;HWC&CC = constant value. General configuration?),,,B555,a0,,,HEX:8,,,First = Zones maybe? Rest unknown; needs some other configured ctlv2
