@@ -102,8 +102,10 @@ rcmode2,UIN,0=off;1=thermostat;2=modulating,,
 slotIndex,UCH,,,array index for the zones. Array Index start at 0 for the first element
 slotCount,UCH,,,Number of total slots in the array. May be Zero.
 slotCountWeek,IGN:1;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;IGN:1,,Number of total slots in the array for a week. Mon-Sun
-slotTimeFrame,HTM;HTM,,,Timeslot from/until
-slotTemp,UIN,,,Numbers are 10 times higher than the actual temp (e.g. 225 = real 22.5)
+startTime,HTM,,,Starting time of the timeframe
+endTime,HTM,,,Ending time of the timeframe
+slotTimeFrame,startTime;endTime,,,Timeslot from/until
+slotTemp,UIN,10,,
 wTimeSlotWithTemp,slotIndex;slotCount;slotTimeFrame;slotTemp,,,Complete Slot for writing the time table settings.
 wTimeSlotWithoutTemp,slotIndex;slotCount;slotTimeFrame;IGN:2,,,Complete slot for writing the time table settings without a temperature.
 rTimeSlotWithTemp,IGN:1;slotTimeFrame;slotTemp,,,Complete Slot for reading the time table settings.
