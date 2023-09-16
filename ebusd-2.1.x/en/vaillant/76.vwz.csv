@@ -21,7 +21,10 @@ r,,SperContaktS20,,,,,2E03FFFF,,,UCH,0=open;1=closed,,,,,,,,,,,,,,,,,,,,
 r,,SperContaktS21,,,,,4803FFFF,,,UCH,0=open;1=closed,,,,,,,,,,,,,,,,,,,,
 r,,BuildingCircuitPumpPower,,,,,0103FFFF,,,UIN,,%,Building circuit pump power (% of maximum),,,,,,,,,,,,,,,,,,
 r,,BuildingCircuitWaterPressure,,,,,2A03FFFF,,,UIN,10,bar,Building circuit water pressure (bar),,,,,,,,,,,,,,,,,,
+<<<<<<< HEAD
 r,,BuildingCircuitFlow,,,,,2B03FFFF,,,UIN,,l/h,Current heating water flow rate (liter/hour),,,,,,,,,,,,,,,,,,
+=======
+>>>>>>> 485e0d1b5dc84d4426d26af553437e37ff11ca9c
 *r,,,,,,"B516","18",,,IGN:1,,,,,,,,,,,,,,,,,,,,,
 r,,YieldTotal,,,,,01,,,energy,,,,,,,,,,,,,,,,,,,,,
 r,,ConsumptionTotal,,,,,02,,,energy,,,,,,,,,,,,,,,,,,,,,
