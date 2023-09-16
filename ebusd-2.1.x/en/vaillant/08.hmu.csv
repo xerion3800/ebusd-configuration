@@ -66,11 +66,7 @@ r,,YieldCoolingMonth,,,,,2a,,,energy,10,kWh,,,,,,,,,,,,,,,,,,,
 r,,CopCoolingMonth,,,,,2b,,,energy,10, ,SEER,,,,,,,,,,,,,,,,,,
 r,,YieldCooling,,,,,2c,,,energy,10,kWh,Total Yield Cooling,,,,,,,,,,,,,,,,,,
 r,,CopCooling,,,,,2d,,,energy,10, ,Total Cop Cooling,,,,,,,,,,,,,,,,,,
-<<<<<<< HEAD
 r,,WaterThroughput,,,,,3C,,,UIN,,l/h,,,,,,,,,,,,,,,,,,,
-=======
-r,,BuildingCircuitFlow,,,,,3C,,,UIN,,l/h,,,,,,,,,,,,,,,,,,,
->>>>>>> 485e0d1b5dc84d4426d26af553437e37ff11ca9c
 r,,FlowPressure,,,,,3d,,,D2C,4,bar,,,,,,,,,,,,,,,,,,,
 r,,SourcePressure,,,,,3e,,,D2C,4,bar,,,,,,,,,,,,,,,,,,,
 # some more statistics from Live Monitor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -177,11 +173,7 @@ r,,HeatingCoilCompressor,,,,,1703FFFF,,,onoff,,,Heating coil compressor (on/off)
 r,,SupplyTemp,,,,,2803FFFF,,,temps2,10,°C,Supply temperature (°C),,,,,,,,,,,,,,,,,,
 r,,ReturnTemp,,,,,2903FFFF,,,temps2,10,°C,Return temperature (°C),,,,,,,,,,,,,,,,,,
 r,,BuildingCircuitWaterPressure,,,,,2A03FFFF,,,UIN,10,bar,Gebouwcircuit waterPressure (bar),,,,,,,,,,,,,,,,,,
-<<<<<<< HEAD
 r,,BuildingCircuitFlow,,,,,2B03FFFF,,,UIN,,l/h,Current heating water flow rate (liter/hour),,,,,,,,,,,,,,,,,,
-=======
-r,,WaterThroughput,,,,,2B03FFFF,,,UIN,,l/h,Current heating water flow rate (liter/hour),,,,,,,,,,,,,,,,,,
->>>>>>> 485e0d1b5dc84d4426d26af553437e37ff11ca9c
 r,,AirInletTemp,,,,,3003FFFF,,,temps2,10,°C,Air inlet temperature (°C),,,,,,,,,,,,,,,,,,
 r,,CompressorOutletTemp,,,,,3703FFFF,,,temps2,10,°C,Compressor outlet temperature (°C),,,,,,,,,,,,,,,,,,
 r,,CompressorInletTemp,,,,,3803FFFF,,,temps2,10,°C,Compressor inlet temperature (°C),,,,,,,,,,,,,,,,,,
