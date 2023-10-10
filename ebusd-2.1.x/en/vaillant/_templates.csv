@@ -7,6 +7,7 @@ pressv,EXP,,bar,pressure
 date,HDA:3,,,date
 day,BDY,,,weekday
 daysel,UCH,0=selected;1=Mo-Fr;2=Sa-Su;3=Mo-Su,,days
+daysel2,UCH,0=off;1=Mon;2=Tue;3=Wed;4=Thu;5=Fri;6=Sat;7=Sun;8=Daily,,days
 days,UCH,,,days
 time,VTI,,,time
 time2,VTM,,,time
@@ -101,7 +102,7 @@ rcmode,UIN,0=off;1=modulating;2=thermostat,,
 rcmode2,UIN,0=off;1=thermostat;2=modulating,,
 slotIndex,UCH,,,array index for the zones. Array Index start at 0 for the first element
 slotCount,UCH,,,Number of total slots in the array. May be Zero.
-slotCountWeek,IGN:1;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;IGN:1,,Number of total slots in the array for a week. Mon-Sun
+slotCountWeek,IGN:1;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;slotCount;IGN:1,,,Number of total slots in the array for a week. Mon-Sun
 startTime,HTM,,,Starting time of the timeframe
 endTime,HTM,,,Ending time of the timeframe
 slotTimeFrame,startTime;endTime,,,Timeslot from/until
