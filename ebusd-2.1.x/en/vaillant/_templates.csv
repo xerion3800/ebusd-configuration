@@ -86,7 +86,11 @@ hto,HDA:3,,,holiday period to
 holiday,hfrom;hfrom;hto;hto,,,holiday period 1 from; 2 from; 1 to; 2 to
 hpstatus,UCH,0=off;3=heat;6=standby;7=otshutdown;8=water,,heating state
 frequency,UIN,,Hz,frequency
+<<<<<<< HEAD
 zonesel,UIN,0=all;1=1;2=2;3=3;4=4;5=5;6=6,,selected zone
+=======
+zonesel,UIN,0=alle;1=1;2=2;3=3;4=4;5=5;6=6,,selected zone
+>>>>>>> 4675cd03b2763867cf74bd12426b1990bebb6204
 sfmode,UCH,0=auto;1=ventilation;2=party;3=veto;4=onedayaway;5=onedayathome;6=load,,
 opmode,UIN,0=off;1=auto;2=day;3=night,,
 opmode2,UIN,0=off;1=time controlled;2=manual,,
