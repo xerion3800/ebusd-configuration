@@ -176,7 +176,7 @@ r;w,,EnergyIntegralStartCooling,,,,,FF3421,,,integral,,°min,Energy Integral val
 r;w,,CompressorSilentOperationLevel,,,,,FF3428,,,percent0,,,Compressor Silent Operation level,,,,,,,,,,,,,,,,,,
 r;w,,MainsBlocktimeMaxDuration,,,,,FF342D,,,UCH,,hrs,Maximum block time duration (in hours),,,,,,,,,,,,,,,,,,
 r,,NoOfSwitchingOps,,,,,FF3430,,,UIN,,,,,,,,,,,,,,,,,,,,,
-r,,CompressorHysteresisHc,,,,,FF3443,,,D2C,,K,Compressor hysteresis central heating (K),,,,,,,,,,,,,,,,,,
+r;w,,CompressorHysteresisHc,,,,,FF3443,,,D2C,,K,Compressor hysteresis central heating (K),,,,,,,,,,,,,,,,,,
 r;w,,HwcMode,,,,,FF3444,,,UCH,0=eco;1=normal;2=balance,,Domestic hot water mod (eco/normal/balance),,,,,,,,,,,,,,,,,,
 r,,Fan1OperHours,,,,,FF3451,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
 r,,Fan1Starts,,,,,FF3452,,,UIN,,,,,,,,,,,,,,,,,,,,,
