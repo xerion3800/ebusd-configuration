@@ -25,11 +25,11 @@ r;w,,AdaptHeatCurve,adaptive heat curve,,,,1400,,,yesno,,,automatic correction o
 r,,xUnknown15,,,,,1500,,,HEX:*,,,
 r;w,,HwcMaxChargeTime,maximale hot water charging time,,,,1700,,,minutes2,,,maximum cylinder charging time
 r;w,,HwcLockTime,hwc lock time,,,,1800,,,minutes2,,,Lock time hot water current
-r,,xUnknown19,,,,,1900,,,HEX:*,,,
+r;w,,SolarFlowRateQuantity,,,,,1900,,,EXP,,l/min,preset flow rate solar circuit for solar yield calculation
 r;w,,PumpAdditionalTime,pump additional time,,,,1B00,,,minutes2,,,chargepump additional operationtime
 r,,xUnknown1B,,,,,1C00,,,HEX:*,,,
 r,,xUnknown1D,,,,,1E00,,,HEX:*,,,
-r,,xUnknown22,,,,,2200,,,HEX:*,,,
+r;w,,HcAlternativePoint,,,,,2200,,,tempv,,,exclusively alternate heating below alternative point (-21=off)
 r;w,,HcBivalencePoint,,,,,2300,,,tempv,,,Bivalence point heating
 r,,xUnknown24,,,,,2400,,,HEX:*,,,
 r,,xUnknown25,,,,,2500,,,HEX:*,,,
@@ -51,7 +51,7 @@ r,,DewPointOffset,,,,,3A00,,,tempv,,,Subtract from z1RoomTemp to get dew point
 r,,xUnknown3C,,,,,3C00,,,HEX:*,,,
 r;w,,SolarYieldTotal,total solar yield,,,,3D00,,,energy4,,,solar yield total
 r;w,,YieldTotal,total environmental yield,,,,3E00,,,energy4,,,envrionment yield total
-r,,xUnknown45,,,,,4500,,,HEX:*,,,
+r;w,,FM5Config,FM5(VR71) configuration,,,,4500,,,UIN,,,FM5(VR71) configuration (needs confirmation!)
 r;w,,HwcMaxFlowTempDesired,hwc max flow temp desired,,,,4600,,,tempv,,,maximum flow temperature setpoint of Hwc
 r,,xUnknown47,,,,,4700,,,HEX:*,,,
 r,,xUnknown48,,,,,4800,,,HEX:*,,,
@@ -115,7 +115,7 @@ r,,HwcStorageTempBottom, storage temperature bottom,,,,9E00,,,tempv,,,temperatur
 r,,HcStorageTempTop,hc storage temperature top,,,,9F00,,,tempv,,,temperature sensor HW storage top
 r,,HcStorageTempBottom,hc storage temperature bottom,,,,A000,,,tempv,,,temperature sensor HW storage bottom
 r,,xUnknownA1,,,,,A100,,,HEX:*,,,
-r,,xUnknownA2,,,,,A200,,,HEX:*,,,
+r;w,,HwcCylinderOffset,Offset cylinder charge,,,,A200,,,calibrationv,,,Offset storage tank loading. Offset
 r,,xUnknownA5,,,,,A500,,,HEX:*,,,
 r,,xUnknownAB,,,,,AB00,,,HEX:*,,,
 r,,xUnknownAF,,,,,AF00,,,HEX:*,,,
@@ -338,6 +338,26 @@ r;w,,z3HeatingRoomTempDesiredManualControlled,Desired Heating Room Temperature Z
 r;w,,z3CoolingRoomTempDesiredManualControlled,Desired Cooling Room Temperature Zone 3 manual controlled,,,,2300,,,tempv,,,manual controlled desired cooling room temperature for zone 3
 r,,z3RoomHumidity,,,,,2800,,,EXP,,%,room humidity zone 3
 r,,z3QuickVetoEndTime,Quick Veto End Time Zone 3,,,,1E00,,,HTI,,,manual override end time for zone 3
+# ##### Solar Circuit #####,,,,,,,,,,,,,
+*r,,,,,,B524,02000400,,,IGN:4,,,
+*w,,,,,,B524,02010400,,,,,,
+r,,SolarUnknown01,,,,,0100,,,HEX:*,,,
+r;w,,SolarPumpKick,,,,,0200,,,onoff,,,
+r,,SolarCollectorTemp,,,,,0300,,,tempv,,,
+r;w,,SolarMinCollectorTemp,,,,,0400,,,tempv,,,
+r;w,,SolarMaxCollectorTemp,,,,,0500,,,tempv,,,
+r,,SolarUnknown06,,,,,0600,,,HEX:*,,,
+r,,SolarYieldTemp,,,,,0700,,,tempv,,,
+r,,SolarPump,,,,,0800,,,onoff,,,
+r,,SolarUnknown09,,,,,0900,,,HEX:*,,,
+r,,SolarUnknown0B,,,,,0B00,,,HEX:*,,,
+# ##### Solar Cylinder 1 #####,,,,,,,,,,,,,
+*r,,,,,,B524,02000500,,,IGN:4,,,
+*w,,,,,,B524,02010500,,,,,,
+r;w,,SolarCyl1MaxTemp,,,,,0100,,,tempv,,,maximum cylinder charging temperature (BottomTemp sensor)
+r;w,,SolarCyl1SwitchOnDifferential,,,,,0200,,,EXP,,K,charge if the temperature difference between the cylinder temperature sensor at the bottom and the collector temperature sensor is greater
+r;w,,SolarCyl1SwitchOffDifferential,,,,,0300,,,EXP,,K,turn charge off if temperature difference between the bottom cylinder temperature sensor and the collector temperature sensor is smaller
+r,,SolarCyl1BottomTemp,,,,,0400,,,tempv,,,bottom cylinder temperature sensor
 # ##### timers #####,,,,,,,,,,,,,
 *r,,,,,,,,,,,,,
 r,,unknownValue.a0,(3Zones;HWC&CC = constant value. General configuration?),,,B555,a0,,,HEX:*,,,First = Zones maybe? Rest unknown; needs some other configured ctlv2
@@ -642,6 +662,6 @@ w,,z3CTimer.Sunday,timer cooling sunday,,,,06,,,wTimeSlotWithoutTemp,,,
 *r,broadcast,,,,,,,,,IGN:1,,,
 *b,broadcast,,,,FE,,,,,IGN:1,,,
 *w,broadcast,,,,FE,,,,,,,,
-b,,NoiseReduction,noise reduction state,,,b508,,onoff,,onoff,,,
+#b,,NoiseReduction,noise reduction state,,,b508,,onoff,,onoff,,,
 # includes,,,,,,,,,,,,,
 !include,errors.inc,,,,,,,,,,,,
