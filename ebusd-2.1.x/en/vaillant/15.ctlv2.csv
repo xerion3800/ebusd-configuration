@@ -658,6 +658,38 @@ w,,z3CTimer.Thursday,timer cooling thursday,,,,03,,,wTimeSlotWithoutTemp,,,
 w,,z3CTimer.Friday,timer cooling friday,,,,04,,,wTimeSlotWithoutTemp,,,
 w,,z3CTimer.Saturday,timer cooling saturday,,,,05,,,wTimeSlotWithoutTemp,,,
 w,,z3CTimer.Sunday,timer cooling sunday,,,,06,,,wTimeSlotWithoutTemp,,,
+##type (r[1-9];w;u),circuit,name,[comment],[QQ],ZZ,PBSB,[ID],field1,part (m/s),datatypes/templates,divider/values,unit,comment,field2,part (m/s)_1,datatypes/templates_2,divider/values_3,unit_4,comment_5,field3,part (m/s)_6,datatypes/tem
+plates_7,divider/values_8,unit_9,comment_10,field4,part (m/s)_11,datatypes/templates_12,divider/values_13,unit_14,comment_15,Column1
+
+#*r,,,,,,"B511",,,,,,,,,,,,,,,,,,,,,,,,,
+#r,,State,,,,,07,energy,,UCH,,,,,,energy,,kWh,,onoff,,UCH,0=off;1=on,,,state,,UCH,0x01=ready;0x0b=error;0x09=heating;0x11=cooling;0x81=heating_water,,
+
+# B5 1A 32 Heatpump statistics Live Monitor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*r,,,,,,"B51A","05FF32",,,IGN:3,,,,,,,,,,,,,,,,,,,,,
+r,,FlowPressure,,,,,3d,,,D2C,4,,,,,,,,,,,,,,,,,,,,
+r,,HeizstabBetriebsStd,,,,,46,,,energy,,,,,,,,,,,,,,,,,,,,,
+r,,HeizstabStromverbrGesamt,,,,,49,,,UIN,,,,,,,,,,,,,,,,,,,,,
+r,,HeizstabSchaltvorg,,,,,4a,,,UIN,,,,,,,,,,,,,,,,,,,,,
+r,,SchaltvorgängeVUV_WW,,,,,4b,,,UIN,,,,,,,,,,,,,,,,,,,,,
+r,,Heizstab_Leistung,,,,,4c,,,D1B,10,kW,in kW,,,,,,,,,,,,,,,,,,
+r,,HeizstabTemp,,,,,5c,,,D2C,,,,,,,,,,,,,,,,,,,,,
+
+# B5 1A 33 Fachhandwerker Konfiguration,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*r,,,,,,"B51A","05FF33",,,IGN:3,,,,,,,,,,,,,,,,,,,,,
+*w,,,,,,"B51A","06FF33",,,,,,,,,,,,,,,,,,,,,,,,
+r;w,,HeizstabLeistungsgrenze,,,,,1a,,,UIN,,kW,,,,,,,,,,,,,,,,,,,
+
+# B5 1A 34 Fachhandwerker Konfiguration,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#*r,,,,,,"B51A","05FF34",,,IGN:3,,,,,,,,,,,,,,,,,,,,,
+#*w,,,,,,"B51A","06FF34",,,,,,,,,,,,,,,,,,,,,,,,
+#r;w,,Restfoerderhoehe,,,,,1f,,,UIN,,mbar,,,,,,,,,,,,,,,,,,,
+
+# B5 14 von 08.hmu00.csv
+*r,,,,,,B514,,,,IGN:2,,,,,,,,,,,,,,,,,,,,,,
+r,,Vorlauftemperatur_Heizstab,T.1.130,,,,058203ffff,,,UIN,10,tempv,Vorlauftemperatur Heizstab,,,,,,,,,,,,,,,,,,,
+
+!include,hcmode.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!include,errors.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # broadcast,,,,,,,,,,,,,
 *r,broadcast,,,,,,,,,IGN:1,,,
 *b,broadcast,,,,FE,,,,,IGN:1,,,
