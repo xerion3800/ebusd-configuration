@@ -6,6 +6,6 @@ w,,SetActorState,,,,,05,R1,,UCH,0=off;20=on,,,R2,,UCH,0=off;20=on,,,R3,,UCH,0=of
 w,,Mc1FlowTempDesired,,,,,0200,FTStatus,,onoff,,,,FTDesired,,temp1,,,,MixerStatus,s,onoff,,,,MixerMovement,s,percents,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 w,,Mc2FlowTempDesired,,,,,0201,FTStatus,,onoff,,,,FTDesired,,temp1,,,,MixerStatus,s,onoff,,,,MixerMovement,s,percents,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 w,,Mc3FlowTempDesired,,,,,0202,FTStatus,,onoff,,,,FTDesired,,temp1,,,,MixerStatus,s,onoff,,,,MixerMovement,s,percents,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-r1,,SensorData1,,,,,06,S1,,temp,,,,S2,,temp,,,,S3,,temp,,,,S4,,temp,,,,S5,,temp,,,,S6,,temp,,,,S7,,temp,,,,ignore,,HEX:2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-r1,,SensorData2,,,,,07,S8,,temp,,,,S9,,temp,,,,S10,,temp,,,,S11,,temp,,,,S12,,temp,,,,Sx,,temp,,,,ignore,,HEX:3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+r,,SensorData1,,,,,06,S1,,temp,,,,S2,,temp,,,,S3,,temp,,,,S4,,temp,,,,S5,,temp,,,,S6,,temp,,,,S7,,temp,,,,ignore,,HEX:2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+r,,SensorData2,,,,,07,S8,,temp,,,,S9,,temp,,,,S10,,temp,,,,S11,,temp,,,,S12,,temp,,,,Sx,,temp,,,,ignore,,HEX:3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 !include,errors.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
