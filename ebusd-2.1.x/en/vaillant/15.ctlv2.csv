@@ -432,7 +432,7 @@ w,,ccTimer.Sunday,timer sunday,,,,06,,,wTimeSlotWithoutTemp,,,
 *w,,,,,,B555,a60004,,,,,,
 r,,silentTimer.Config,timer Configuration(static atm? describes featue set?),,,B555,a30004,,,HEX:9,,,Configuration
 r,,silentTimer.Timeframes,Configured slot count,,,B555,a40004,,,slotCountWeek,,,Amount of configured slots per weekday
-r,,silentTimer.Monday0,timer monday 1,,,,0000,,,rTimeSlotWithoutTemp,,,
+w;r,,silentTimer.Monday0,timer monday 1,,,,0000,,,rTimeSlotWithoutTemp,,,
 r,,silentTimer.Monday1,timer monday 2,,,,0001,,,rTimeSlotWithoutTemp,,,
 r,,silentTimer.Monday2,timer monday 3,,,,0002,,,rTimeSlotWithoutTemp,,,
 r,,silentTimer.Tuesday0,timer tuesday 1,,,,0100,,,rTimeSlotWithoutTemp,,,
