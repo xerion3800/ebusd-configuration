@@ -15,3 +15,6 @@ r,,Status,Status,,,,03,,,temp;press;press;hcmode2;HEX,,,
 
 *uw,,,,,,"B512",,,,,,,
 uw,,StatusCirPump,Status circulation pump,,,,00,,,UCH,0=off;100=on,,
+
+*r,,,,,,B511,,,,,,,,,,,,,,,,,,,,,,,,,
+r,,Status00,,,,,00,S00_SupplyTemp,,temp,,,,WaterPressure,,UCH,10,bar,,S00_CompressorModulation,,percent1,,,,CompressorState,,UCH,0=off;1=Heating Prerun;4=Heating;5=Heating Overrun;110=Defrosting,,,HeatingState,,UCH,8=off;9=Heating,,,field6,,UCH,,,,Defrost,,UCH,0=inactive;32=active,,,S00_CompressorPower,,percent1,,,
