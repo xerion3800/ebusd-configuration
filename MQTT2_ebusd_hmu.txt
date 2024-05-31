@@ -1,0 +1,476 @@
+
+Floorplans
+ASC
+Aktoren
+Alarmanlage
+Anwesenheit
+Beleuchtung
+Datenbank
+Draußen
+Energie
+FHEM2FHEM
+Fahrzeuge
+Fenster
+Räume
+SmartHome
+System
+Temperatur
+Unsorted
+Waschmaschine
+Wetter-Vorhersage
+icoEverythingEverything
+Logfile
+Commandref
+Remote doc
+Edit files
+Style settings
+Event monitor
+Backup
+
+define MQTT2_ebusd_hmu MQTT2_DEVICE ebusd_hmu
+attr MQTT2_ebusd_hmu IODev Mosquitto_Broker_Vaillant
+attr MQTT2_ebusd_hmu alias Vaillant aroTHERM plus VWL 105/6 A
+attr MQTT2_ebusd_hmu comment Energieintergral geht runter wenn Kompressor Hysterese höher ist wie 7k\
+max. Restförderhöhe von 900 = ca. 2000 l/h\
+max. Restförderhöhe von 350 = ca. 1500 l/h\
+kleine Restförderhöhe senkt JAZ!\
+Dauerhafter Flüstermodus hilft bei kalten Temperaturen das Takten in der Nachtabsenkung zu reduzieren\
+\
+Warmwassermodus auf ECO senkt JAZ und es reicht aus um die WW zu errreichen, Alternative wäre Balance\
+\
+Am 10.11.2023 Kompr. Hysterese Heizen von 7k auf 5k gestellt (Wärmepumpe läuft dadurch länger und schaltet später ab, aber Takte nahezu identisch)\
+Am 12.11.2023 Kompr. Hysterese Heizen von 5k auf 10k gestellt\
+Am 15.11.23 EnergyIntegral von -60 auf -100 gestellt\
+Am 21.11.23 Warmwasser Modus von Normal auf eco gestellt\
+Am 25.11.2023 Kompr. Hysterese Heizen von 10k auf 5k gestellt\
+Am 26.11.2023 Kompr. Hysterese Heizen von 5k auf 15k gestellt\
+Am 21.12.2023 wurde das Wasser aufbereitet\
+Am 04.01.2024 max. Restförderhöhe von 900 auf 380 mbar (3,9 Meter) runtergestelt, um  zu sehen wie es beim Takten und beim Verbauch auswirkt.\
+Am 04.02.2024 Warmwassermodus auf ECO gestellt vorher Balance\
+
+attr MQTT2_ebusd_hmu event-min-interval (?!Statuscode_0_value_text).*:300
+attr MQTT2_ebusd_hmu event-on-change-reading .*
+attr MQTT2_ebusd_hmu icon sani_heating_heatpump
+attr MQTT2_ebusd_hmu readingList ebusd/hmu/4PortValve:.* { json2nameValue($EVENT, '4PortValve_', $JSONMAP) }\
+ebusd/hmu/4PortValveHours:.* { json2nameValue($EVENT, '4PortValveHours_', $JSONMAP) }\
+ebusd/hmu/4PortValveSwitches:.* { json2nameValue($EVENT, '4PortValveSwitches_', $JSONMAP) }\
+ebusd/hmu/AirInletTemp:.* { json2nameValue($EVENT, 'AirInletTemp_', $JSONMAP) }\
+ebusd/hmu/AirIntakeTemp:.* { json2nameValue($EVENT, 'AirIntakeTemp_', $JSONMAP) }\
+ebusd/hmu/BuildingCircuitFlow:.* { json2nameValue($EVENT, 'BuildingCircuitFlow_', $JSONMAP) }\
+ebusd/hmu/BuildingCircuitMaxPressureDifference:.* { json2nameValue($EVENT, 'BuildingCircuitMaxPressureDifference_', $JSONMAP) }\
+ebusd/hmu/BuildingCircuitPumpPower:.* { json2nameValue($EVENT, 'BuildingCircuitPumpPower_', $JSONMAP) }\
+ebusd/hmu/BuildingCircuitWaterPressure:.* { json2nameValue($EVENT, 'BuildingCircuitWaterPressure_', $JSONMAP) }\
+ebusd/hmu/BuildingPumpHours:.* { json2nameValue($EVENT, 'BuildingPumpHours_', $JSONMAP) }\
+ebusd/hmu/BuildingPumpStarts:.* { json2nameValue($EVENT, 'BuildingPumpStarts_', $JSONMAP) }\
+ebusd/hmu/CompressorBlocktime:.* { json2nameValue($EVENT, 'CompressorBlocktime_', $JSONMAP) }\
+ebusd/hmu/CompressorCurrentLimit:.* { json2nameValue($EVENT, 'CompressorCurrentLimit_', $JSONMAP) }\
+ebusd/hmu/CompressorHours:.* { json2nameValue($EVENT, 'CompressorHours_', $JSONMAP) }\
+ebusd/hmu/CompressorHysteresisHc:.* { json2nameValue($EVENT, 'CompressorHysteresisHc_', $JSONMAP) }\
+ebusd/hmu/CompressorInletTemp:.* { json2nameValue($EVENT, 'CompressorInletTemp_', $JSONMAP) }\
+ebusd/hmu/CompressorModulation:.* { json2nameValue($EVENT, 'CompressorModulation_', $JSONMAP) }\
+ebusd/hmu/CompressorOutletTemp:.* { json2nameValue($EVENT, 'CompressorOutletTemp_', $JSONMAP) }\
+ebusd/hmu/CompressorSilentOperationLevel:.* { json2nameValue($EVENT, 'CompressorSilentOperationLevel_', $JSONMAP) }\
+ebusd/hmu/CompressorSpeed:.* { json2nameValue($EVENT, 'CompressorSpeed_', $JSONMAP) }\
+ebusd/hmu/CompressorStarts:.* { json2nameValue($EVENT, 'CompressorStarts_', $JSONMAP) }\
+ebusd/hmu/CopCooling:.* { json2nameValue($EVENT, 'CopCooling_', $JSONMAP) }\
+ebusd/hmu/CopCoolingMonth:.* { json2nameValue($EVENT, 'CopCoolingMonth_', $JSONMAP) }\
+ebusd/hmu/CopHc:.* { json2nameValue($EVENT, 'CopHc_', $JSONMAP) }\
+ebusd/hmu/CopHcMonth:.* { json2nameValue($EVENT, 'CopHcMonth_', $JSONMAP) }\
+ebusd/hmu/CopHwc:.* { json2nameValue($EVENT, 'CopHwc_', $JSONMAP) }\
+ebusd/hmu/CopHwcMonth:.* { json2nameValue($EVENT, 'CopHwcMonth_', $JSONMAP) }\
+ebusd/hmu/CurrentConsumedPower:.* { json2nameValue($EVENT, 'CurrentConsumedPower_', $JSONMAP) }\
+ebusd/hmu/currenterror:.* { json2nameValue($EVENT, 'currenterror_', $JSONMAP) }\
+ebusd/hmu/CurrentYieldPower:.* { json2nameValue($EVENT, 'CurrentYieldPower_', $JSONMAP) }\
+ebusd/hmu/DateTime:.* { json2nameValue($EVENT, 'DateTime_', $JSONMAP) }\
+ebusd/hmu/EnergyIntegral:.* { json2nameValue($EVENT, 'EnergyIntegral_', $JSONMAP) }\
+ebusd/hmu/EnergyIntegralStartCooling:.* { json2nameValue($EVENT, 'EnergyIntegralStartCooling_', $JSONMAP) }\
+ebusd/hmu/EnergyIntegralStartHeating:.* { json2nameValue($EVENT, 'EnergyIntegralStartHeating_', $JSONMAP) }\
+ebusd/hmu/Fan1:.* { json2nameValue($EVENT, 'Fan1_', $JSONMAP) }\
+ebusd/hmu/Fan1OperHours:.* { json2nameValue($EVENT, 'Fan1OperHours_', $JSONMAP) }\
+ebusd/hmu/Fan1Starts:.* { json2nameValue($EVENT, 'Fan1Starts_', $JSONMAP) }\
+ebusd/hmu/Fan2:.* { json2nameValue($EVENT, 'Fan2_', $JSONMAP) }\
+ebusd/hmu/Fan2OperHours:.* { json2nameValue($EVENT, 'Fan2OperHours_', $JSONMAP) }\
+ebusd/hmu/Fan2Starts:.* { json2nameValue($EVENT, 'Fan2Starts_', $JSONMAP) }\
+ebusd/hmu/FlowPressure:.* { json2nameValue($EVENT, 'FlowPressure_', $JSONMAP) }\
+ebusd/hmu/FlowTemp:.* { json2nameValue($EVENT, 'FlowTemp_', $JSONMAP) }\
+ebusd/hmu/HeatingCoilCompressor:.* { json2nameValue($EVENT, 'HeatingCoilCompressor_', $JSONMAP) }\
+ebusd/hmu/HighPressure:.* { json2nameValue($EVENT, 'HighPressure_', $JSONMAP) }\
+ebusd/hmu/HighPressureSwitch:.* { json2nameValue($EVENT, 'HighPressureSwitch_', $JSONMAP) }\
+ebusd/hmu/HwcMode:.* { json2nameValue($EVENT, 'HwcMode_', $JSONMAP) }\
+ebusd/hmu/HwcTemp:.* { json2nameValue($EVENT, 'HwcTemp_', $JSONMAP) }\
+ebusd/hmu/LiveMonitorMain:.* { json2nameValue($EVENT, 'LiveMonitorMain_', $JSONMAP) }\
+ebusd/hmu/LowPressure:.* { json2nameValue($EVENT, 'LowPressure_', $JSONMAP) }\
+ebusd/hmu/MainsBlocktimeMaxDuration:.* { json2nameValue($EVENT, 'MainsBlocktimeMaxDuration_', $JSONMAP) }\
+ebusd/hmu/OutdoorTemp:.* { json2nameValue($EVENT, 'OutdoorTemp_', $JSONMAP) }\
+ebusd/hmu/ReturnTemp:.* { json2nameValue($EVENT, 'ReturnTemp_', $JSONMAP) }\
+ebusd/hmu/RunningHoursCooling:.* { json2nameValue($EVENT, 'RunningHoursCooling_', $JSONMAP) }\
+ebusd/hmu/RunningHoursHc:.* { json2nameValue($EVENT, 'RunningHoursHc_', $JSONMAP) }\
+ebusd/hmu/RunningHoursHwc:.* { json2nameValue($EVENT, 'RunningHoursHwc_', $JSONMAP) }\
+ebusd/hmu/SetMode:.* { json2nameValue($EVENT, 'SetMode_', $JSONMAP) }\
+ebusd/hmu/State:.* { json2nameValue($EVENT, 'State_', $JSONMAP) }\
+ebusd/hmu/State0:.* { json2nameValue($EVENT, 'State0_', $JSONMAP) }\
+ebusd/hmu/Status01:.* { json2nameValue($EVENT, 'Status01_', $JSONMAP) }\
+ebusd/hmu/StatusCirPump:.* { json2nameValue($EVENT, 'StatusCirPump_', $JSONMAP) }\
+ebusd/hmu/Statuscode:.* { json2nameValue($EVENT, 'Statuscode_', $JSONMAP) }\
+ebusd/hmu/SupplyTemp:.* { json2nameValue($EVENT, 'SupplyTemp_', $JSONMAP) }\
+ebusd/hmu/SupplyTempWeighted:.* { json2nameValue($EVENT, 'SupplyTempWeighted_', $JSONMAP) }\
+ebusd/hmu/TotalEnergyUsage:.* { json2nameValue($EVENT, 'TotalEnergyUsage_', $JSONMAP) }\
+ebusd/hmu/TotalRunningHours:.* { json2nameValue($EVENT, 'TotalRunningHours_', $JSONMAP) }\
+ebusd/hmu/unknownMB509h2802:.* { json2nameValue($EVENT, 'unknownMB509h2802_', $JSONMAP) }\
+ebusd/hmu/unknownMB513h0528:.* { json2nameValue($EVENT, 'unknownMB513h0528_', $JSONMAP) }\
+ebusd/hmu/unknownMB51Ah0532:.* { json2nameValue($EVENT, 'unknownMB51Ah0532_', $JSONMAP) }\
+ebusd/hmu/unknownMB51Ah2634:.* { json2nameValue($EVENT, 'unknownMB51Ah2634_', $JSONMAP) }\
+ebusd/hmu/unknownMPoll60sB507h:.* { json2nameValue($EVENT, 'unknownMPoll60sB507h_', $JSONMAP) }\
+ebusd/hmu/unknownMPoll60sB511h:.* { json2nameValue($EVENT, 'unknownMPoll60sB511h_', $JSONMAP) }\
+ebusd/hmu/YieldCooling:.* { json2nameValue($EVENT, 'YieldCooling_', $JSONMAP) }\
+ebusd/hmu/YieldCoolingDay:.* { json2nameValue($EVENT, 'YieldCoolingDay_', $JSONMAP) }\
+ebusd/hmu/YieldCoolingMonth:.* { json2nameValue($EVENT, 'YieldCoolingMonth_', $JSONMAP) }\
+ebusd/hmu/YieldHc:.* { json2nameValue($EVENT, 'YieldHc_', $JSONMAP) }\
+ebusd/hmu/YieldHcDay:.* { json2nameValue($EVENT, 'YieldHcDay_', $JSONMAP) }\
+ebusd/hmu/YieldHcMonth:.* { json2nameValue($EVENT, 'YieldHcMonth_', $JSONMAP) }\
+ebusd/hmu/YieldHwc:.* { json2nameValue($EVENT, 'YieldHwc_', $JSONMAP) }\
+ebusd/hmu/YieldHwcDay:.* { json2nameValue($EVENT, 'YieldHwcDay_', $JSONMAP) }\
+ebusd/hmu/YieldHwcMonth:.* { json2nameValue($EVENT, 'YieldHwcMonth_', $JSONMAP) }\
+
+attr MQTT2_ebusd_hmu room Energie->Heizung
+attr MQTT2_ebusd_hmu setList HwcMode_0_value:eco,normal,balance {{system("ebusctl w -c hmu HwcMode $EVTPART1&")}}\
+CompressorCurrentLimit_0_value:slider,13,1,16 {{system("ebusctl w -c hmu CompressorCurrentLimit $EVTPART1&")}}\
+CompressorSilentOperationLevel_percent0_value {{system("ebusctl w -c hmu CompressorSilentOperationLevel $EVTPART1&")}}\
+EnergyIntegralStartHeating_integral_value {{system("ebusctl w -c hmu EnergyIntegralStartHeating $EVTPART1&")}}\
+CompressorHysteresisHc_0_value {{system("ebusctl w -c hmu CompressorHysteresisHc $EVTPART1&")}}\
+BuildingCircuitMaxPressureDifference_0_value {{system("ebusctl w -c hmu BuildingCircuitMaxPressureDifference $EVTPART1&")}}\
+
+attr MQTT2_ebusd_hmu stateFormat Zustand: State_onoff_value
+\
+Aktueller Status-Code: Statuscode_0_value_text
+\
+Aktueller Status: State_3_value
+\
+Warmwasser Modus: HwcMode_0_value
+\
+Vorlaufsollwert Wärmepumpe: SetMode_flowtempdesired_value °C
+\
+Zirkulationspumpe: StatusCirPump_0_value
+\
+Vorlauftemperatur: FlowTemp_0_value °C
+\
+Rücklauftemperatur: ReturnTemp_temps2_value °C
+\
+Kompressor Starts: CompressorStarts_0_value
+\
+Kompressor Blockierzeit: CompressorBlocktime_0_value h
+\
+Kompressor Modulation: CompressorModulation_0_value %
+\
+Kompressor Geschwindigkeit: CompressorSpeed_0_value rps
+\
+Kompressor reduziert um CompressorSilentOperationLevel_percent0_value % für Flüsterbetrieb
+\
+Kompressor Strombegrenzung: CompressorCurrentLimit_0_value A
+\
+Kompressor Hysterese: CompressorHysteresisHc_0_value k
+\
+COP Monat Heizung: CopHcMonth_0_value
+\
+COP Monat Warmwasser: CopHwcMonth_0_value
+\
+COP Gesamt Heizung: CopHc_0_value
+\
+COP Gesamt Warmwasser: CopHwc_0_value
+\
+Stromverbrauch Aktuell: CurrentConsumedPower_0_value kW
+\
+Stromverbrauch Gesamt: TotalEnergyUsage_energy_value kWh
+\
+Starts Gebäudepumpe: BuildingPumpStarts_0_value
+\
+Betriebsstunden Lüfter 1: Fan1OperHours_0_value h
+\
+Starts Lüfter 1: Fan1Starts_0_value
+\
+Betriebsstunden Lüfter 2: Fan2OperHours_0_value h
+\
+Starts Lüfter 2: Fan2Starts_0_value
+\
+max. Restförderhöhe: BuildingCircuitMaxPressureDifference_0_value mbar
+\
+Betriebsstunden Kompressor: CompressorHours_0_value h
+\
+Betriebsstunden Gesamt: TotalRunningHours_0_value h
+\
+Betriebsstunden Heizkreis: RunningHoursHc_0_value h
+\
+Betriebsstunden Warmwasser: RunningHoursHwc_0_value h
+\
+Betriebsstunden Gebäudepumpe: BuildingPumpHours_0_value h
+\
+Energierertrag Tag Heizkreis: YieldHcDay_energy_value kWh
+\
+Energierertrag Monat Heizkreis: YieldHcMonth_energy_value kWh
+\
+Energierertrag Gesamt Heizkreis: YieldHc_energy_value kWh
+\
+Energierertrag Tag Warmwasser: YieldHwcDay_energy_value kWh
+\
+Energierertrag Monat Warmwasser: YieldHwcMonth_energy_value kWh
+\
+Energierertrag Gesamt Warmwasser: YieldHwc_energy_value kWh
+
+attr MQTT2_ebusd_hmu userReadings Statuscode_0_value_text:Statuscode_0_value.* {ebusd_hmuStatusText(ReadingsVal("$NAME","Statuscode_0_value",0))}\
+
+
+setstate MQTT2_ebusd_hmu Zustand: Normal mode HP on
+\
+Aktueller Status-Code: Heizen: Nachlauf
+\
+Aktueller Status: heating
+\
+Warmwasser Modus: eco
+\
+Vorlaufsollwert Wärmepumpe: 29.0 °C
+\
+Zirkulationspumpe: on
+\
+Vorlauftemperatur: 36.50 °C
+\
+Rücklauftemperatur: 35.6 °C
+\
+Kompressor Starts: 1166
+\
+Kompressor Blockierzeit: 0 h
+\
+Kompressor Modulation: 0.0 %
+\
+Kompressor Geschwindigkeit: 0.0 rps
+\
+Kompressor reduziert um 60 % für Flüsterbetrieb
+\
+Kompressor Strombegrenzung: 16 A
+\
+Kompressor Hysterese: 15.00 k
+\
+COP Monat Heizung: 4.8
+\
+COP Monat Warmwasser: 3.2
+\
+COP Gesamt Heizung: 4.4
+\
+COP Gesamt Warmwasser: 3.0
+\
+Stromverbrauch Aktuell: 0.1 kW
+\
+Stromverbrauch Gesamt: 2178 kWh
+\
+Starts Gebäudepumpe: 344
+\
+Betriebsstunden Lüfter 1: 1202 h
+\
+Starts Lüfter 1: 1360
+\
+Betriebsstunden Lüfter 2: 1202 h
+\
+Starts Lüfter 2: 1360
+\
+max. Restförderhöhe: 900 mbar
+\
+Betriebsstunden Kompressor: 1121 h
+\
+Betriebsstunden Gesamt: 2761 h
+\
+Betriebsstunden Heizkreis: 1904 h
+\
+Betriebsstunden Warmwasser: 157 h
+\
+Betriebsstunden Gebäudepumpe: 2097 h
+\
+Energierertrag Tag Heizkreis: 9.8 kWh
+\
+Energierertrag Monat Heizkreis: 562.3 kWh
+\
+Energierertrag Gesamt Heizkreis: 6099 kWh
+\
+Energierertrag Tag Warmwasser: 7.8 kWh
+\
+Energierertrag Monat Warmwasser: 99.5 kWh
+\
+Energierertrag Gesamt Warmwasser: 1030 kWh
+
+setstate MQTT2_ebusd_hmu 2024-01-10 12:18:33 0_name 
+setstate MQTT2_ebusd_hmu 2024-01-10 12:18:33 0_value 104
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 4PortValveHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 4PortValveHours_0_value 10
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 4PortValveSwitches_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 4PortValveSwitches_0_value 175
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 AirInletTemp_temps2_value 6.7
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 AirIntakeTemp_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 AirIntakeTemp_0_value 6.75
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 BuildingCircuitFlow_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 BuildingCircuitFlow_0_value 2088
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:00 BuildingCircuitMaxPressureDifference_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:00 BuildingCircuitMaxPressureDifference_0_value 900
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 BuildingPumpHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 BuildingPumpHours_0_value 2097
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 BuildingPumpStarts_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 BuildingPumpStarts_0_value 344
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorBlocktime_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorBlocktime_0_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CompressorCurrentLimit_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CompressorCurrentLimit_0_value 16
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CompressorHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CompressorHours_0_value 1121
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 CompressorHysteresisHc_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 CompressorHysteresisHc_0_value 15.00
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 CompressorInletTemp_temps2_value 15.9
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorModulation_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorModulation_0_value 0.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 CompressorOutletTemp_temps2_value 39.2
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorSilentOperationLevel_percent0_value 60
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorSpeed_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CompressorSpeed_0_value 0.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CompressorStarts_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CompressorStarts_0_value 1166
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CopCoolingMonth_energy_value 1.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CopCooling_energy_value 1.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHcMonth_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHcMonth_0_value 4.8
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHc_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHc_0_value 4.4
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHwcMonth_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 CopHwcMonth_0_value 3.2
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CopHwc_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 CopHwc_0_value 3.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CurrentConsumedPower_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CurrentConsumedPower_0_value 0.1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CurrentYieldPower_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 CurrentYieldPower_0_value 0.0
+setstate MQTT2_ebusd_hmu 2024-01-04 07:39:56 DateTime_bdate_value -.-.-
+setstate MQTT2_ebusd_hmu 2024-01-04 07:39:56 DateTime_btime_value -:-:-
+setstate MQTT2_ebusd_hmu 2024-01-04 07:39:56 DateTime_dcfstate_value nosignal
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 EnergyIntegralStartHeating_integral_value -100
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 EnergyIntegral_integral_value 22
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan1OperHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan1OperHours_0_value 1202
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan1Starts_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan1Starts_0_value 1360
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:47 Fan1_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:47 Fan1_0_value 17
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan2OperHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan2OperHours_0_value 1202
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan2Starts_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:39 Fan2Starts_0_value 1360
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:47 Fan2_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:47 Fan2_0_value 14
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 FlowPressure_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 FlowPressure_0_value 1.20
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 FlowTemp_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 FlowTemp_0_value 36.50
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:47 HeatingCoilCompressor_onoff_value off
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 HighPressureSwitch_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 HighPressureSwitch_0_value closed
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 HighPressure_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 HighPressure_0_value 4.7
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 HwcMode_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 HwcMode_0_value eco
+setstate MQTT2_ebusd_hmu 2024-02-07 11:50:55 IODev Mosquitto_Broker_Vaillant
+setstate MQTT2_ebusd_hmu 2023-11-16 21:39:37 LiveMonitorMain_function_value 0
+setstate MQTT2_ebusd_hmu 2023-11-16 21:39:37 LiveMonitorMain_id_value 100
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 LowPressure_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 LowPressure_0_value 4.8
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 MainsBlocktimeMaxDuration_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 MainsBlocktimeMaxDuration_0_value 1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:35 ReturnTemp_temps2_value 35.6
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursCooling_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursCooling_0_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursHc_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursHc_0_value 1904
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursHwc_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 RunningHoursHwc_0_value 157
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_disablehc_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_disablehwcload_value 1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_disablehwctapping_value 1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_flowtempdesired_value 29.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_hcmode_value auto
+setstate MQTT2_ebusd_hmu 2024-02-12 04:07:44 SetMode_hwcflowtempdesired_value 120
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_releaseBackup_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_releaseCooling_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SetMode_remoteControlHcPump_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field1_value 78
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field2_value 3074
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field3_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field4_value 5
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field5_value 8
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:05 State0_field6_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_0_name power
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_0_value 0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_1_name energy
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_1_value 18.2
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_2_name state
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_2_value 225
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_3_name state
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:46 State_3_value heating
+setstate MQTT2_ebusd_hmu 2023-11-01 14:13:53 State_energy_value 14.7
+setstate MQTT2_ebusd_hmu 2023-11-01 14:13:53 State_onoff_value Normal mode HP on
+setstate MQTT2_ebusd_hmu 2023-11-01 14:13:53 State_power_value 18
+setstate MQTT2_ebusd_hmu 2023-11-01 14:13:53 State_state_value heating_water
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_0_name temp1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_0_value 36.5
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_1_name temp1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_1_value 35.5
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_2_name temp2
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_3_name temp1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_4_name temp1
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_5_name pumpstate
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 Status01_5_value off
+setstate MQTT2_ebusd_hmu 2024-02-12 07:48:14 StatusCirPump_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:48:14 StatusCirPump_0_value on
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 Statuscode_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:45 Statuscode_0_value 107
+setstate MQTT2_ebusd_hmu 2024-02-12 07:49:58 Statuscode_0_value_text Heizen: Nachlauf
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SupplyTempWeighted_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:40 SupplyTempWeighted_0_value 2.900
+setstate MQTT2_ebusd_hmu 2024-02-12 07:52:48 SupplyTemp_temps2_value 36.4
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 TotalEnergyUsage_energy_value 2178
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 TotalRunningHours_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 TotalRunningHours_0_value 2761
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldCoolingDay_energy_value 0.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 YieldCoolingMonth_energy_value 0.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 YieldCooling_energy_value 0.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldHcDay_energy_value 9.8
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldHcMonth_energy_value 562.3
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldHc_energy_value 6099
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldHwcDay_energy_value 7.8
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:29 YieldHwcMonth_energy_value 99.5
+setstate MQTT2_ebusd_hmu 2024-02-12 07:44:35 YieldHwc_energy_value 1030
+setstate MQTT2_ebusd_hmu 2024-01-03 10:18:59 associatedWith MQTT2_ebusd
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 currenterror_0_name error
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 currenterror_1_name error
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 currenterror_2_name error
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 currenterror_3_name error
+setstate MQTT2_ebusd_hmu 2024-02-12 07:51:54 currenterror_4_name error
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field1_value 116
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field2_value 3074
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field3_value 91
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field4_value 4
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field5_value 9
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:53 field6_value 0
+setstate MQTT2_ebusd_hmu 2024-01-10 12:20:51 get 
+setstate MQTT2_ebusd_hmu 2023-11-30 21:21:07 integral_value 60
+setstate MQTT2_ebusd_hmu 2023-10-24 15:30:57 json2nameValueErrorText error parsing (#2) 'eco'
+setstate MQTT2_ebusd_hmu 2023-10-24 15:30:57 json2nameValueInput eco
+setstate MQTT2_ebusd_hmu 2023-12-09 16:24:42 onoff_value off
+setstate MQTT2_ebusd_hmu 2023-10-27 21:38:27 set 40
+setstate MQTT2_ebusd_hmu 2024-01-14 11:06:20 state CompressorSilentOperationLevel_percent0_value
+setstate MQTT2_ebusd_hmu 2023-12-09 16:26:20 temps2_value -99.0
+setstate MQTT2_ebusd_hmu 2024-02-12 07:47:49 unknownMB509h2802_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:47:49 unknownMB509h2802_0_value 02 00 09 02 5f 01 00 48 4d 55 30 33
+setstate MQTT2_ebusd_hmu 2024-02-12 07:48:19 unknownMB513h0528_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:48:19 unknownMB513h0528_0_value 01
+setstate MQTT2_ebusd_hmu 2024-02-12 05:25:59 unknownMB51Ah0532_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 05:25:59 unknownMB51Ah0532_0_value 05 07 c0 cf c0 7b 3c 00 b0 1b 20 00 00 00
+setstate MQTT2_ebusd_hmu 2024-02-12 00:01:57 unknownMB51Ah2634_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 00:01:57 unknownMB51Ah2634_0_value 26 cf 20 00 c0 02 21 01 00 18 00 06 d8 00
+setstate MQTT2_ebusd_hmu 2024-02-12 07:25:04 unknownMPoll60sB507h_0_name 
+setstate MQTT2_ebusd_hmu 2024-02-12 07:25:04 unknownMPoll60sB507h_0_value cb 03
+setstate MQTT2_ebusd_hmu 2023-11-16 21:40:54 unknownMPoll60sB511h_0_name 
+setstate MQTT2_ebusd_hmu 2023-11-16 21:40:54 unknownMPoll60sB511h_0_value 54 02 0f 00 00 00 00 00 00
+
