@@ -247,6 +247,7 @@ r;w,,z1CoolingRoomTempDesiredTimeControlled,Desired Cooling Room Temperature Zon
 r;w,,z1HolidayStartPeriod,Holiday Period Start Zone 1,,,,0300,,,hfrom,,,start date of holidays for zone 1
 r;w,,z1HolidayEndPeriod,Holiday Period End Zone 1,,,,0400,,,hto,,,end date of holidays for zone 1
 r;w,,z1HolidayTemp,Holiday Period Target Temperature Zone 1,,,,0500,,,tempv,,,holiday setpoint for zone 1
+r;w,,z1OpMode,Betriebsart Zone 1,,,,0600,,,opmode,,,operation mode of zone 1
 r;w,,z1OpModeHeating,Heating OpMode Zone 1,,,,0600,,,opmode2,,,Heating operation mode of zone 1
 #r,,z1Unknown07,,,,,0700,,,HEX:*,,,
 r;w,,z1QuickVetoTemp,Quick Veto Temperature Zone 1,,,,0800,,,tempv,,,manual override setpoint for zone 1
