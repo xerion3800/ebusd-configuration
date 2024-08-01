@@ -85,7 +85,7 @@ r;w,,PhoneNumber2,phone number 2,,,,7000,,,STR:*,,,installer's telephone number
 r;w,,HolidayStartPeriod,holiday start period,,,,7100,,,hfrom,,,start date of holidays
 r;w,,HolidayEndPeriod,holiday end period,,,,7200,,,hto,,,end date of holidays
 r,,DisplayedOutsideTemp,outside temperature,,,,7300,,,tempv,,,outside temperature
-r;w,,SFMode,SF mode,,,,7400,,,sfmode,,,
+#r;w,,SFMode,SF mode,,,,7400,,,sfmode,,,
 r,,xUnknown75,,,,,7500,,,HEX:*,,,
 r;w,,KeyCodeforConfigMenu,code for installer menu,,,,7600,,,UIN,,,000-999; code for the installer's menues
 r,,xUnknown77,,,,,7700,,,HEX:*,,,
@@ -312,7 +312,7 @@ r;w,,z2Name2,Name Zone 2 Part 2,,,,1800,,,zname,,,name of zone 2
 r;w,,z2HeatingRoomTempDesiredManualControlled,Desired Heating Room Temperature Zone 2 manual controlled,,,,2200,,,tempv,,,manual controlled desired heating room temperature for zone 2
 r;w,,z2CoolingRoomTempDesiredManualControlled,Desired Cooling Room Temperature Zone 2 manual controlled,,,,2300,,,tempv,,,manual controlled desired cooling room temperature for zone 2
 r,,z2QuickVetoEndTime,Quick Veto End Time Zone 2,,,,1E00,,,HTI,,,manual override end time for zone 2
-r,,z2QuickVetoVEndDate,Enddatum QuickVeto Zone 2,,,,2400,,,HDA:3,,,end date of quick veto for zone 2
+r,,z2QuickVetoEndDate,Enddatum QuickVeto Zone 2,,,,2400,,,HDA:3,,,end date of quick veto for zone 2
 r;w,,z2QuickVetoDuration,Dauer QuickVeto Zone 2,,,,2600,,,EXP,,,duration of quick veto for zone 2
 r,,z2RoomHumidity,,,,,2800,,,EXP,,%,room humidity zone 2
 # ##### zone 3 #####,,,,,,,,,,,,,
