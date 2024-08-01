@@ -137,7 +137,7 @@ r,,xUnknownBF,,,,,BF00,,,HEX:*,,,
 *w,,,,,,B524,02010100,,,,,,
 r,,HwcUnknown01,,,,,0100,,,HEX:*,,,
 r,,HwcUnknown02,,,,,0200,,,HEX:*,,,
-r;w,,HwcOpMode,HwcOpMode,,,,0300,,,opmode2,,,operation mode of Hwc
+r;w,,HwcOpMode,HwcOpMode,,,,0300,,,opmode,,,operation mode of Hwc
 r;w,,HwcTempDesired,Desired Temperature Warm Water Circuit,,,,0400,,,tempv,,,setpoint of domestic hot water circuit
 r,,HwcStorageTemp,HwcStorageTemp,,,,0500,,,tempv,,,current hot water storage temperature
 r,,HwcUnknown06,,,,,0600,,,HEX:*,,,
