@@ -260,8 +260,8 @@ r,,z1Unknown10,,,,,1000,,,HEX:*,,,
 r,,z1Unknown11,,,,,1100,,,HEX:*,,,
 r;w,,z1ValveStatus,Valve Status Zone 1,,,,1200,,,UCH,,,valve status of zone 1
 r;w,,z1RoomZoneMapping,Raumregler Zuordnung Zone 1,,,,1300,,,zmapping,,,configures which room temperature is assigned to zone 1
-r,,z1ActualHeatingRoomTempDesired,Actual Desired Heating Room Temperature Zone 1,,,,1400,,,tempv,,,current heating room setpoint considering all basic conditions passed to the control algorithms (0 = heating inactive)
-r,,z1ActualCoolingRoomTempDesired,Actual Desired Cooling Room Temperature Zone 1,,,,1500,,,tempv,,,current cooling room setpoint considering all basic conditions passed to the control algorithms (99 = cooling inactive)
+r;w,,z1ActualHeatingRoomTempDesired,Actual Desired Heating Room Temperature Zone 1,,,,1400,,,tempv,,,current heating room setpoint considering all basic conditions passed to the control algorithms (0 = heating inactive)
+r;w,,z1ActualCoolingRoomTempDesired,Actual Desired Cooling Room Temperature Zone 1,,,,1500,,,tempv,,,current cooling room setpoint considering all basic conditions passed to the control algorithms (99 = cooling inactive)
 r;w,,z1Shortname,Shortname Zone 1,,,,1600,,,shortname,,,short name of zone 1
 r;w,,z1Name1,Name Zone 1 Part 1,,,,1700,,,STR:*,,,name of zone 1
 r;w,,z1Name2,Name Zone 1 Part 2,,,,1800,,,STR:*,,,name of zone 1
