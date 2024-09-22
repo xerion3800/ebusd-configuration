@@ -342,7 +342,6 @@ r;w,,z3Name2,Name Zone 3 Part 2,,,,1800,,,zname,,,name of zone 3
 r;w,,z3HeatingRoomTempDesiredManualControlled,Desired Heating Room Temperature Zone 3 manual controlled,,,,2200,,,tempv,,,manual controlled desired heating room temperature for zone 3
 r;w,,z3CoolingRoomTempDesiredManualControlled,Desired Cooling Room Temperature Zone 3 manual controlled,,,,2300,,,tempv,,,manual controlled desired cooling room temperature for zone 3
 r,,z3RoomHumidity,,,,,2800,,,EXP,,%,room humidity zone 3
-r,,z3QuickVetoEndTime,Quick Veto End Time Zone 3,,,,1E00,,,HTI,,,manual override end time for zone 3
 # ##### Solar Circuit #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000400,,,IGN:4,,,
 *w,,,,,,B524,02010400,,,,,,
