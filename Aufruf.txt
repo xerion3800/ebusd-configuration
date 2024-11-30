@@ -1,0 +1,2 @@
+
+EBUSD_OPTS="-d ens:192.168.178.113:9999 --configpath=/home/fort/ebus/ebusd-configuration/ebusd-2.1.x/en --scanconfig=full -l /var/log/ebusd.log --log='all error' --accesslevel=* --mqttport=1882 --mqttjson --mqtthost=192.168.178.181 --mqtttopic=ebusd/%circuit/%name"
